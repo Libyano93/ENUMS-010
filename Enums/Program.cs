@@ -6,27 +6,17 @@ namespace Enums
     {
         static void Main(string[] args)
         {
-            var day = "FEB1";
-            if (Enum.TryParse(day, out Month month))
-            {
-                Console.WriteLine(month);
-            }
-            else
-            {
-                Console.WriteLine("Invalid Entry");
-            }
+            Console.WriteLine("------------------GetNames--------------------\n");
 
-
-            var day1 = 2;
-            if (Enum.IsDefined(typeof(Month), day1))
+            foreach (var month in Enum.GetNames(typeof(Month)))
             {
-                Console.WriteLine(((Month) day1));
+                Console.WriteLine($"{month} = {(int)Enum.Parse(typeof(Month),month)}");
             }
-            else
+            Console.WriteLine("\n------------------GetValues--------------------\n");
+            foreach (var month in Enum.GetValues(typeof(Month)))
             {
-                Console.WriteLine("Invalid Entry");
+                Console.WriteLine($"{month.ToString()} = {(int)month}");
             }
-
             Console.ReadKey();
         }
     }
