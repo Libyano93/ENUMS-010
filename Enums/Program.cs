@@ -6,7 +6,11 @@ namespace Enums
     {
         static void Main(string[] args)
         {
-            Console.WriteLine((int)Month.APR);
+            var day = (DAY.SATURDAY | DAY.SUNDAY);
+            if (day.HasFlag(DAY.WEEKEND))
+            {
+                Console.WriteLine("enjoy your weekend");
+            }
             Console.ReadKey();
         }
     }
